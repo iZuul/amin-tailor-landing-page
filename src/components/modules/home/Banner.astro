@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import TailorRoomImage from "../../../assets/images/tailor-room.webp";
+---
+
+<div id="home" class="relative">
+  <figure class="relative">
+    <Image
+      src={TailorRoomImage}
+      alt={`Tailor Room`}
+      widths={[720, 1920]}
+      height={360}
+      class:list="text-center object-cover w-full h-banner-lg md:h-banner xl:lg:h-banner-lg"
+      loading="lazy"
+      decoding="async"
+    />
+    <figcaption
+      class="absolute bottom-0 w-full text-center text-[4px] text-white/75 sm:text-[8px] lg:text-end"
+    >
+      Photo by <a
+        href="https://unsplash.com/@randomlies?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Ashim D’Silva</a
+      > on <a
+        href="https://unsplash.com/photos/ZmgJiztRHXE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Unsplash</a
+      >
+    </figcaption>
+  </figure>
+  <div
+    class="absolute left-1/2 top-1/2 -mt-5 w-5/6 -translate-x-1/2 -translate-y-1/4 rounded bg-black/40 p-5 sm:mt-0 md:w-3/4 md:-translate-y-1/4 xl:w-2/3 xl:-translate-x-2/3 xl:-translate-y-1/2"
+  >
+    <h1 class="prose text-center text-lg text-white sm:text-6xl lg:text-left">
+      Dapatkan Baju Impianmu di sini:
+      <span
+        class="mt-3 block text-xs font-extrabold sm:mt-10 sm:text-3xl lg:text-4xl"
+        >Amin Tailor siap Membuatnya!</span
+      >
+    </h1>
+  </div>
+</div>

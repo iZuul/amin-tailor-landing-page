@@ -1,0 +1,26 @@
+---
+import Maps from "./Maps.astro";
+import WhatsappIcon from "../../../components/icons/WhatsappIcon.astro";
+import ContentCopyIcon from "../../../components/icons/ContentCopyIcon.astro";
+---
+
+<div id="contact-us">
+  <h2
+    class="mb-4 mt-10 pb-4 text-center text-base font-semibold text-ground-900 md:text-3xl"
+  >
+    Kontak Kami.
+  </h2>
+  <div class="flex flex-col items-center gap-10">
+    <Maps />
+    <div>
+      <a
+        class="flex items-center gap-3 rounded-md bg-green-500 px-5 py-3 text-white"
+        href="https://wa.me/6281548619166"
+        target="_blank"
+      >
+        <WhatsappIcon />
+        <span id="phone-text">6281548619166</span>
+      </a>
+    </div>
+  </div>
+</div>
