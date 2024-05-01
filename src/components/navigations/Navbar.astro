@@ -1,23 +1,73 @@
 <nav
-  class="bg-ground-800 md:w-navbar left-0 top-0 z-50 flex h-20 items-center justify-between px-10 py-2 text-white md:fixed md:m-5 md:rounded-full xl:sticky xl:m-0 xl:w-full xl:rounded-b-3xl xl:rounded-t-none"
+  id="navigation"
+  class="sticky left-0 top-0 z-50 flex h-20 items-center justify-between bg-ground-800 px-10 py-2 text-white md:fixed md:m-5 md:w-navbar md:rounded-full xl:m-0 xl:w-full xl:rounded-none"
 >
-  <div class="w-full lg:w-auto text-center lg:text-left text-lg font-bold">
+  <div class="w-full text-center text-lg font-bold lg:w-auto lg:text-left">
     <a class="rounded px-4 py-2 transition hover:text-white/75" href="/"
       >Amin Tailor</a
     >
   </div>
-  <ul class="hidden gap-14 text-sm md:flex items-center">
-    <li class="transition-all text-center hover:font-bold">
+  <ul id="navigation-menu" class="m hidden items-center gap-14 text-sm md:flex">
+    <li class="text-center transition-all hover:font-bold">
       <a href="#home">Beranda</a>
     </li>
-    <li class="transition-all text-center hover:font-bold">
+    <li class="text-center transition-all hover:font-bold">
       <a href="#our-services">Layanan</a>
     </li>
-    <li class="transition-all text-center hover:font-bold">
+    <li class="text-center transition-all hover:font-bold">
       <a href="#about-us">Tentang Kami</a>
     </li>
-    <li class="transition-all text-center hover:font-bold">
+    <li class="text-center transition-all hover:font-bold">
       <a href="#contact-us">Kontak Kami</a>
     </li>
   </ul>
+  <div class="flex items-center md:hidden">
+    <button class="mobile-menu-button">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <title>bars-3-bottom-left</title>
+        <g fill="none">
+          <path
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g>
+      </svg>
+    </button>
+  </div>
 </nav>
+<ul
+  id="mobile-menu"
+  class="fixed left-0 z-[1] w-full -translate-y-[100%] items-center gap-14 bg-ground-800 text-sm text-white opacity-0 transition-all duration-300 md:flex"
+>
+  <li class="px-2 py-3 text-center transition-all hover:font-bold">
+    <a href="#home">Beranda</a>
+  </li>
+  <li class="px-2 py-3 text-center transition-all hover:font-bold">
+    <a href="#our-services">Layanan</a>
+  </li>
+  <li class="px-2 py-3 text-center transition-all hover:font-bold">
+    <a href="#about-us">Tentang Kami</a>
+  </li>
+  <li class="px-2 py-3 text-center transition-all hover:font-bold">
+    <a href="#contact-us">Kontak Kami</a>
+  </li>
+</ul>
+
+<script>
+  const mobileMenuButton = document.querySelector(".mobile-menu-button");
+  const mobileMenu = document.querySelector("#mobile-menu");
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("opacity-0");
+      mobileMenu.classList.toggle("-translate-y-[100%]");
+    });
+  }
+</script>
