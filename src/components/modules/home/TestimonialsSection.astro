@@ -1,0 +1,149 @@
+---
+const testimonials = [
+  {
+    quote:
+      "Hasilnya melebihi ekspektasi saya. Setiap detail diperhatikan dengan sangat teliti. Suit ini bukan hanya pakaian, tapi investasi pada penampilan dan kepercayaan diri.",
+    name: "Muhammad Zulfa",
+    garment: "Karyawan Swasta",
+  },
+  {
+    quote:
+      "Pengalaman bespoke pertama saya dan langsung jatuh cinta. Prosesnya sangat personal, Amin benar-benar memahami gaya dan kebutuhan saya.",
+    name: "Azhaar Afif",
+    garment: "Karyawan Swasta",
+  },
+  {
+    quote:
+      "Kualitas jahitan dan kain yang digunakan benar-benar premium. Sudah 3 tahun suit ini tetap terlihat sempurna. Highly recommended!",
+    name: "Hasna Nur",
+    garment: "Guru Swasta",
+  },
+];
+---
+
+<section
+  id="testimoni"
+  class="section-padding page-padding relative overflow-hidden"
+  style="background-color: #0F172A;"
+>
+  <!-- Background decorative quote -->
+  <div
+    class="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none select-none hidden md:block"
+    style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(15rem, 30vw, 25rem); color: rgba(255,255,255,0.03); line-height: 1;"
+  >
+    &#x275D;
+  </div>
+
+  <div class="content-max mx-auto relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="scroll-reveal" data-reveal-y="30">
+        <span class="font-label block mb-4" style="color: #C9A96E;" data-i18n="testimonials.label">
+          TESTIMONI
+        </span>
+      </div>
+      <div data-str>
+        <h2 class="font-display-l" style="color: #FFFFFF;" data-i18n="testimonials.heading">
+          <span class="block overflow-hidden">
+            <span class="str-line">Kata Mereka</span>
+          </span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Testimonial Cards -->
+    <div id="testimonial-cards" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((t, i) => (
+        <div
+          data-card
+          class="testimonial-card p-10 rounded-lg transition-all duration-400 hover:-translate-y-1 group"
+          style="background-color: rgba(26,26,26,0.5); border: 1px solid rgba(255,255,255,0.08);"
+          data-testimonial-card
+        >
+          <!-- Quote icon -->
+          <span
+            class="block mb-6"
+            style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: rgba(201,169,110,0.4);"
+          >
+            &#x275D;
+          </span>
+
+          <!-- Quote text -->
+          <p
+            class="font-body-l italic mb-6"
+            style="font-family: 'Playfair Display', Georgia, serif; color: rgba(255,255,255,0.85); line-height: 1.7;"
+            data-i18n={`testimonials.items.${i}.quote`}
+          >
+            {t.quote}
+          </p>
+
+          <!-- Divider -->
+          <div
+            class="mb-6"
+            style="width: 40px; height: 1px; background-color: rgba(201,169,110,0.3);"
+          />
+
+          <!-- Client info -->
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+              style="background-color: rgba(201,169,110,0.15);"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-white" data-i18n={`testimonials.items.${i}.name`}>{t.name}</p>
+              <p class="font-caption" style="color: rgba(255,255,255,0.5);" data-i18n={`testimonials.items.${i}.garment`}>
+                {t.garment}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Testimonial cards entrance
+  const container = document.getElementById("testimonial-cards");
+  if (container) {
+    const cards = container.querySelectorAll("[data-card]");
+    gsap.set(cards, { opacity: 0, y: 50 });
+
+    ScrollTrigger.create({
+      trigger: container,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        gsap.to(cards, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "expo.out",
+          stagger: 0.15,
+        });
+      },
+    });
+  }
+
+  // Testimonial card hover effects
+  document.querySelectorAll("[data-testimonial-card]").forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      (card as HTMLElement).style.borderColor = "rgba(201,169,110,0.3)";
+      (card as HTMLElement).style.boxShadow = "0 8px 40px rgba(0,0,0,0.2)";
+    });
+    card.addEventListener("mouseleave", () => {
+      (card as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
+      (card as HTMLElement).style.boxShadow = "none";
+    });
+  });
+</script>

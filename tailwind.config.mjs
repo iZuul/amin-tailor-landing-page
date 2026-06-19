@@ -4,6 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        charcoal: "#1A1A1A",
+        ivory: "#FAF7F2",
+        champagne: "#C9A96E",
+        "warm-gray": "#8C8278",
+        mist: "#E8E2D9",
+        "deep-navy": "#0F172A",
         beige: {
           50: "#FEFEFB",
           100: "#FDFDF7",
@@ -31,6 +37,10 @@ export default {
           950: "#150F0A",
         },
       },
+      fontFamily: {
+        serif: ["'Playfair Display'", "Georgia", "serif"],
+        sans: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+      },
       height: {
         banner: "calc(100vh)",
         "banner-lg": "calc(100vh - 5rem)",
@@ -38,13 +48,17 @@ export default {
       width: {
         navbar: "calc(100% - 40px)",
       },
+      transitionDuration: {
+        400: "400ms",
+        600: "600ms",
+      },
     },
   },
   variants: {
     extend: {
-      height: ['group-hover'],
-      display: ['group-hover'],
-    }
+      height: ["group-hover"],
+      display: ["group-hover"],
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

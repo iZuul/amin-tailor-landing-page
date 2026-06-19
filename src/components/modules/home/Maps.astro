@@ -1,11 +1,53 @@
-<div class="relative h-96 w-full">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.013768600222!2d110.803256!3d-7.574227!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a15d41fccb555%3A0x183e37154b2bc1c!2sAmin%20Tailor!5e0!3m2!1sid!2sid!4v1697962625419!5m2!1sid!2sid"
-    width="600"
-    height="450"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-    class="absolute left-0 top-0 h-full w-full"></iframe>
-</div>
+---
+---
+
+<section
+  id="lokasi"
+  class="section-padding page-padding"
+  style="background-color: #FAF7F2;"
+>
+  <div class="content-max mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-10 scroll-reveal" data-reveal-y="20">
+      <span class="font-label block mb-4" style="color: #C9A96E;" data-i18n="maps.label">
+        LOKASI
+      </span>
+      <h2 class="font-display-l" style="color: #1A1A1A;" data-i18n="maps.heading">
+        <span class="block overflow-hidden">
+          <span class="str-line">Temukan Kami</span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Map Embed -->
+    <div class="scroll-reveal relative overflow-hidden rounded-lg" data-reveal-y="30" style="aspect-ratio: 16/7; border: 1px solid #E8E2D9;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7910.013768600222!2d110.803256!3d-7.574227!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a15d41fccb555%3A0x183e37154b2bc1c!2sAmin%20Tailor!5e0!3m2!1sid!2sid!4v1697962625419!5m2!1sid!2sid"
+        width="100%"
+        height="100%"
+        style="border: 0; position: absolute; inset: 0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      />
+    </div>
+
+    <!-- Maps Link -->
+    <div class="scroll-reveal text-center mt-6" data-reveal-y="10" data-reveal-delay="0.1">
+      <a
+        href="https://maps.app.goo.gl/ayL4NCdeiccMM2bM6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 font-label transition-colors duration-300 hover:opacity-70"
+        style="color: #C9A96E;"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <polyline points="15 3 21 3 21 9" />
+          <line x1="10" y1="14" x2="21" y2="3" />
+        </svg>
+        <span data-i18n="maps.openInMaps">Buka di Google Maps</span>
+      </a>
+    </div>
+  </div>
+</section>

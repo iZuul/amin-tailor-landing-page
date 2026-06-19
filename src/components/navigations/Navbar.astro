@@ -1,73 +1,180 @@
-<nav
-  id="navigation"
-  class="sticky left-0 top-0 z-50 flex h-20 items-center justify-between bg-ground-800 px-10 py-2 text-white md:top-5 md:m-5 md:w-navbar md:rounded-full xl:top-0 xl:m-0 xl:w-full xl:rounded-none"
+---
+const navLinks = [
+  { label: "Layanan", target: "#layanan", i18n: "nav.services" },
+  { label: "Tentang", target: "#tentang", i18n: "nav.about" },
+  { label: "Koleksi", target: "#koleksi", i18n: "nav.collection" },
+  { label: "Testimoni", target: "#testimoni", i18n: "nav.testimonials" },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-400"
+  style="height: 72px; background-color: transparent; backdrop-filter: none;"
 >
-  <div class="w-full text-center text-lg font-bold lg:w-auto lg:text-left">
-    <a class="rounded px-4 py-2 transition hover:text-white/75" href="/"
-      >Amin Tailor</a
+  <nav class="page-padding content-max flex items-center justify-between h-full">
+    <!-- Logo -->
+    <a
+      href="#hero"
+      class="flex items-center gap-2.5 hover:opacity-70 transition-opacity duration-300"
     >
-  </div>
-  <ul id="navigation-menu" class="m hidden items-center gap-14 text-sm md:flex">
-    <li class="text-center transition-all hover:font-bold">
-      <a href="#home">Beranda</a>
-    </li>
-    <li class="text-center transition-all hover:font-bold">
-      <a href="#our-services">Layanan</a>
-    </li>
-    <li class="text-center transition-all hover:font-bold">
-      <a href="#about-us">Tentang Kami</a>
-    </li>
-    <li class="text-center transition-all hover:font-bold">
-      <a href="#contact-us">Kontak Kami</a>
-    </li>
-  </ul>
-  <div class="flex items-center md:hidden">
-    <button class="mobile-menu-button">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <title>bars-3-bottom-left</title>
-        <g fill="none">
-          <path
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" class="h-9 w-9 flex-shrink-0">
+        <g transform="translate(42, 25)">
+          <path d="M 50,180 C 10,130 10,70 50,50 C 90,30 110,90 100,120" fill="none" stroke="#C9A96E" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 160,200 L 100,20" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round"/>
+          <ellipse cx="109" cy="47" rx="2" ry="6" transform="rotate(-20, 109, 47)" fill="#FAF7F2"/>
+          <path d="M 100,120 C 95,100 100,60 109,47 C 115,35 130,20 150,40" fill="none" stroke="#C9A96E" stroke-width="4" stroke-dasharray="3,3"/>
+          <line x1="58" y1="120" x2="128" y2="120" stroke="#C9A96E" stroke-width="7" stroke-linecap="round"/>
         </g>
       </svg>
+      <span class="font-label text-sm font-semibold tracking-[0.15em] text-charcoal" data-i18n="nav.brand">AMIN TAILOR</span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center gap-10">
+      {navLinks.map((link) => (
+        <a
+          href={link.target}
+          class="text-[13px] font-normal tracking-[0.04em] transition-all duration-300 hover:opacity-100 text-charcoal opacity-70"
+          data-i18n={link.i18n}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Desktop CTA -->
+    <a
+      href="https://wa.me/6281548619166?text=Halo%20Amin%20Tailor%2C%20saya%20ingin%20konsultasi%20tentang"
+      target="_blank"
+      rel="noopener noreferrer"
+      id="nav-cta"
+      class="hidden md:block text-xs font-medium tracking-[0.06em] uppercase px-7 py-2.5 rounded-full border transition-all duration-400 text-charcoal"
+      style="border-color: rgba(26, 26, 26, 0.3);"
+      data-wa=""
+      data-i18n="nav.cta"
+    >
+      Buat Janji
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu"
+    >
+      <span
+        id="hamburger-1"
+        class="block w-5 h-px bg-charcoal transition-all duration-300"
+      />
+      <span
+        id="hamburger-2"
+        class="block w-5 h-px bg-charcoal transition-all duration-300"
+      />
+      <span
+        id="hamburger-3"
+        class="block w-5 h-px bg-charcoal transition-all duration-300"
+      />
     </button>
-  </div>
-</nav>
-<ul
-  id="mobile-menu"
-  class="fixed left-0 z-[1] w-full -translate-y-[100%] items-center gap-14 bg-ground-800 text-sm text-white opacity-0 transition-all duration-300 md:flex"
+  </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 z-40 flex-col items-center justify-center md:hidden hidden"
+  style="background-color: var(--color-ivory, #FAF7F2);"
 >
-  <li class="px-2 py-3 text-center transition-all hover:font-bold">
-    <a href="#home">Beranda</a>
-  </li>
-  <li class="px-2 py-3 text-center transition-all hover:font-bold">
-    <a href="#our-services">Layanan</a>
-  </li>
-  <li class="px-2 py-3 text-center transition-all hover:font-bold">
-    <a href="#about-us">Tentang Kami</a>
-  </li>
-  <li class="px-2 py-3 text-center transition-all hover:font-bold">
-    <a href="#contact-us">Kontak Kami</a>
-  </li>
-</ul>
+  {navLinks.map((link) => (
+    <a
+      href={link.target}
+      class="mobile-nav-link font-heading-m my-4 transition-opacity duration-300 hover:opacity-70 text-charcoal"
+      data-i18n={link.i18n}
+    >
+      {link.label}
+    </a>
+  ))}
+  <a
+    href="https://wa.me/6281548619166?text=Halo%20Amin%20Tailor%2C%20saya%20ingin%20konsultasi%20tentang"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mt-8 text-xs font-medium tracking-[0.06em] uppercase px-7 py-2.5 rounded-full border transition-all duration-400 text-charcoal"
+    style="border-color: #C9A96E;"
+    data-wa=""
+    data-i18n="nav.cta"
+  >
+    Buat Janji
+  </a>
+</div>
 
 <script>
-  const mobileMenuButton = document.querySelector(".mobile-menu-button");
-  const mobileMenu = document.querySelector("#mobile-menu");
+  // Navbar background transition on scroll
+  const header = document.getElementById("site-header");
+  const handleScroll = () => {
+    if (!header) return;
+    if (window.scrollY > 100) {
+      header.style.backgroundColor = "rgba(250, 247, 242, 0.9)";
+      header.style.backdropFilter = "blur(20px)";
+      header.style.webkitBackdropFilter = "blur(20px)";
+    } else {
+      header.style.backgroundColor = "transparent";
+      header.style.backdropFilter = "none";
+      header.style.webkitBackdropFilter = "none";
+    }
+  };
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("opacity-0");
-      mobileMenu.classList.toggle("-translate-y-[100%]");
+  // CTA hover
+  const cta = document.getElementById("nav-cta");
+  if (cta) {
+    cta.addEventListener("mouseenter", () => {
+      cta.style.backgroundColor = "#C9A96E";
+      cta.style.borderColor = "#C9A96E";
+      cta.style.color = "#FFFFFF";
+    });
+    cta.addEventListener("mouseleave", () => {
+      cta.style.backgroundColor = "transparent";
+      cta.style.borderColor = "rgba(26, 26, 26, 0.3)";
+      cta.style.color = "#1A1A1A";
+    });
+  }
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const overlay = document.getElementById("mobile-menu-overlay");
+  const h1 = document.getElementById("hamburger-1");
+  const h2 = document.getElementById("hamburger-2");
+  const h3 = document.getElementById("hamburger-3");
+  let menuOpen = false;
+
+  if (menuBtn && overlay) {
+    menuBtn.addEventListener("click", () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex");
+        if (h1) h1.style.transform = "rotate(45deg) translateY(3.5px)";
+        if (h2) h2.style.opacity = "0";
+        if (h3) h3.style.transform = "rotate(-45deg) translateY(-3.5px)";
+      } else {
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex");
+        if (h1) h1.style.transform = "none";
+        if (h2) h2.style.opacity = "1";
+        if (h3) h3.style.transform = "none";
+      }
+    });
+
+    // Close on link click
+    overlay.querySelectorAll(".mobile-nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        menuOpen = false;
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex");
+        if (h1) h1.style.transform = "none";
+        if (h2) h2.style.opacity = "1";
+        if (h3) h3.style.transform = "none";
+      });
     });
   }
 </script>

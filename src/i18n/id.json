@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Amin Tailor | Bespoke Tailoring",
+    "description": "Amin Tailor - Bespoke Tailoring"
+  },
+  "nav": {
+    "brand": "AMIN TAILOR",
+    "services": "Layanan",
+    "about": "Tentang",
+    "collection": "Koleksi",
+    "testimonials": "Testimoni",
+    "cta": "Buat Janji"
+  },
+  "hero": {
+    "title": "<span class=\"block overflow-hidden\"><span class=\"hero-word inline-block\">Craf<i>ted</i></span></span><span class=\"block overflow-hidden\"><span class=\"hero-word inline-block\">to <i>Per</i>fect<i>Ion</i></span></span>",
+    "subtitle": "Bespoke tailoring yang dirancang khusus untuk gaya dan kepribadian Anda.",
+    "scroll": "Scroll"
+  },
+  "philosophy": {
+    "label": "FILOSOFI KAMI",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Setiap Jahitan,</span></span><span class=\"block overflow-hidden\"><span class=\"str-line\">Sebuah Karya</span></span>",
+    "body": "Di Amin Tailor, kami percaya bahwa pakaian yang sempurna bukan sekadar busana — ia adalah ekspresi diri. Dengan pengalaman bertahun-tahun, kami menyatukan teknik tradisional dan sentuhan modern untuk menciptakan sesuatu yang benar-benar milik Anda."
+  },
+  "services": {
+    "label": "LAYANAN",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Layanan Kami</span></span>",
+    "viewDetail": "Lihat Detail",
+    "freeConsultation": "Konsultasi Gratis",
+    "items": {
+      "bespoke": {
+        "title": "Bespoke Tailoring",
+        "tagline": "Pakaian yang dibuat khusus untuk tubuh dan gaya Anda",
+        "description": "Proses bespoke kami dimulai dari pengukuran detail tubuh Anda, pemilihan kain premium, hingga final fitting. Setiap potongan pola dirancang khusus — tidak ada dua bespoke suit yang sama. Minimum 3 fitting session untuk hasil sempurna."
+      },
+      "alteration": {
+        "title": "Alterations",
+        "tagline": "Sempurnakan pakaian yang sudah Anda miliki",
+        "description": "Dari penyesuaian sederhana hingga restyling total, kami mengubah pakaian Anda agar pas sempurna. Hemming, taking in, letting out, shoulder adjustments, dan lainnya — semua dikerjakan dengan standar tertinggi."
+      },
+      "consultation": {
+        "title": "Personal Consultation",
+        "tagline": "Temukan gaya terbaik bersama ahli kami",
+        "description": "Konsultasi personal untuk membantu Anda menemukan gaya, siluet, dan palet warna yang paling cocok. Kami membimbing Anda dalam memilih kain, desain, dan detail yang mencerminkan kepribadian Anda."
+      }
+    }
+  },
+  "collection": {
+    "label": "KOLEKSI",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\"></span></span>",
+    "caption": ""
+  },
+  "about": {
+    "label": "TENTANG KAMI",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Cerita Di Balik</span></span><span class=\"block overflow-hidden\"><span class=\"str-line\">Setiap Jahitan</span></span>",
+    "body1": "Amin Tailor lahir dari passion mendalam terhadap seni menjahit. Dibawah kepemimpinan Amin, kami telah melayani ratusan klien yang mencari lebih dari sekadar pakaian — mereka mencari pengalaman.",
+    "body2": "Setiap karya yang keluar dari tailor kami adalah hasil dari perpaduan teknik tradisional dan inovasi modern. Kami percaya bahwa pakaian terbaik adalah yang tidak hanya pas di tubuh, tetapi juga bercerita tentang pemakainya.",
+    "cta": "Hubungi Kami"
+  },
+  "testimonials": {
+    "label": "TESTIMONI",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Kata Mereka</span></span>",
+    "items": [
+      {
+        "quote": "The result exceeded my expectations. Every detail was meticulously considered. This suit isn't just clothing — it's an investment in appearance and confidence.",
+        "name": "Muhammad Zulfa",
+        "garment": "Karyawan Swasta"
+      },
+      {
+        "quote": "My first bespoke experience and I fell in love immediately. The process was incredibly personal — Amin truly understood my style and needs.",
+        "name": "Azhaar Afif",
+        "garment": "Karyawan Swasta"
+      },
+      {
+        "quote": "The quality of stitching and fabric used is truly premium. After 3 years, this suit still looks perfect. Highly recommended!",
+        "name": "Hasna Nur",
+        "garment": "Guru"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Siap Membuat</span></span><span class=\"block overflow-hidden\"><span class=\"str-line\">Pakaian Impian Anda?</span></span>",
+    "body": "Jangan ragu untuk menghubungi kami. Konsultasi pertama Anda adalah gratis, dan kami dengan senang hati akan membantu mewujudkan visi Anda.",
+    "cta": "Mulai Perjalanan Anda"
+  },
+  "footer": {
+    "brand": "AMIN TAILOR",
+    "tagline": "Jahit Premium & Bespoke Tailoring",
+    "nav": {
+      "services": "Layanan",
+      "collection": "Koleksi",
+      "about": "Tentang Kami",
+      "contact": "Hubungi Kami"
+    },
+    "copyright": "&copy; 2025 Amin Tailor. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "maps": {
+    "label": "LOKASI",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Temukan Kami</span></span>",
+    "openInMaps": "Buka di Google Maps"
+  },
+  "wa": {
+    "text": "Halo Amin Tailor, saya ingin konsultasi tentang"
+  },
+  "lang": {
+    "id": "ID",
+    "en": "EN"
+  }
+}

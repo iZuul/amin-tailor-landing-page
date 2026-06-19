@@ -1,18 +1,127 @@
 ---
-import AboutUs from "../components/modules/home/AboutUs.astro";
-import Banner from "../components/modules/home/Banner.astro";
-import ContactUs from "../components/modules/home/ContactUs.astro";
+import HeroSection from "../components/modules/home/HeroSection.astro";
+import PhilosophySection from "../components/modules/home/PhilosophySection.astro";
 import Services from "../components/modules/home/Services.astro";
+import CollectionSection from "../components/modules/home/CollectionSection.astro";
+import AboutUs from "../components/modules/home/AboutUs.astro";
+import TestimonialsSection from "../components/modules/home/TestimonialsSection.astro";
+import ContactUs from "../components/modules/home/ContactUs.astro";
+import Maps from "../components/modules/home/Maps.astro";
+import LoadingScreen from "../components/LoadingScreen.astro";
 import WhatsappFabButton from "../components/navigations/WhatsappFabButton.astro";
+import ReturnToTop from "../components/navigations/ReturnToTop.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Amin Tailor | Segera Buatin Bajumu">
-  <main class="container mx-auto">
-    <Banner />
+<Layout title="Amin Tailor | Bespoke Tailoring">
+  <LoadingScreen />
+  <main>
+    <HeroSection />
+    <PhilosophySection />
     <Services />
+    <CollectionSection />
     <AboutUs />
+    <TestimonialsSection />
+    <Maps />
     <ContactUs />
-    <WhatsappFabButton />
   </main>
+  <WhatsappFabButton />
+  <ReturnToTop />
 </Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { initI18n, getTranslations, getCurrentLocale } from "../i18n/index";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Expose i18n globally for service overlay
+  (window as any).__i18n = { getTranslations, getCurrentLocale };
+
+  // Initialize all scroll reveal animations
+  function initScrollReveal() {
+    const elements = document.querySelectorAll(".scroll-reveal");
+    elements.forEach((el) => {
+      const delay = parseFloat((el as HTMLElement).dataset.revealDelay || "0");
+      const y = parseFloat((el as HTMLElement).dataset.revealY || "40");
+
+      gsap.set(el, { opacity: 0, y });
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay,
+            ease: "expo.out",
+          });
+        },
+      });
+    });
+  }
+
+  // Initialize staggered text reveal animations
+  function initStaggeredTextReveal() {
+    const elements = document.querySelectorAll("[data-str]");
+    elements.forEach((el) => {
+      const lines = el.querySelectorAll(".str-line");
+      if (lines.length === 0) return;
+
+      gsap.set(lines, { y: "110%", opacity: 0 });
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+          gsap.to(lines, {
+            y: "0%",
+            opacity: 1,
+            duration: 0.9,
+            ease: "expo.out",
+            stagger: 0.12,
+          });
+        },
+      });
+    });
+  }
+
+  // Initialize decorative rule animations
+  function initRuleAnimations() {
+    const rules = document.querySelectorAll("[data-rule]");
+    rules.forEach((rule) => {
+      gsap.set(rule, { width: 0 });
+
+      ScrollTrigger.create({
+        trigger: rule,
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          gsap.to(rule, { width: 60, duration: 0.8, ease: "power2.out" });
+        },
+      });
+    });
+  }
+
+  // Run all initializations after loading screen completes or on DOM ready
+  function initAll() {
+    initScrollReveal();
+    initStaggeredTextReveal();
+    initRuleAnimations();
+  }
+
+  window.addEventListener("loading-complete", initAll);
+
+  // Fallback if loading screen is already gone
+  if (!document.getElementById("loading-screen")) {
+    initAll();
+  }
+
+  // Initialize i18n
+  initI18n();
+</script>
