@@ -5,24 +5,165 @@ import LanguageSwitcher from "../components/navigations/LanguageSwitcher.astro";
 import "../styles/global.css";
 
 interface Props {
-  title: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title = "Amin Tailor | Premium Bespoke Tailoring",
+  description = "Expert bespoke tailoring crafted to perfection. Custom suits, alterations, and personal consultations. Experience premium craftsmanship at Amin Tailor.",
+  image = "/assets/hero-poster.jpg",
+  url = "https://amin-tailor.vercel.app",
+  type = "website"
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="id" class="scroll-pt-24 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Amin Tailor - Bespoke Tailoring" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="google-site-verification" content={import.meta.env.GOOGLE_SITE_VERIFICATION} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
-
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="bespoke tailoring, custom suits, tailor, alterations, premium tailoring, Amin Tailor, jahit bespoke, penjahit custom" />
+    <meta name="author" content="Amin Tailor" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={url} />
+    
+    <!-- Favicon & Sitemap -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content={import.meta.env.GOOGLE_SITE_VERIFICATION} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Amin Tailor - Premium Bespoke Tailoring" />
+    <meta property="og:site_name" content="Amin Tailor" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:locale:alternate" content="en_US" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content="Amin Tailor - Premium Bespoke Tailoring" />
+    
+    <!-- JSON-LD Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ClothingStore",
+        "name": "Amin Tailor",
+        "alternateName": "Amin Tailor Bespoke",
+        "description": "Premium bespoke tailoring services specializing in custom suits, alterations, and personal consultations.",
+        "url": "https://amin-tailor.vercel.app",
+        "logo": "https://amin-tailor.vercel.app/favicon.svg",
+        "image": "https://amin-tailor.vercel.app/assets/hero-poster.jpg",
+        "telephone": "+6281548619166",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Indonesia",
+          "addressCountry": "ID"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-6.2",
+          "longitude": "106.816666"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "20:00"
+          }
+        ],
+        "sameAs": [],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "100"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Tailoring Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bespoke Tailoring",
+                "description": "Custom-made garments crafted to your exact measurements and style preferences"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Alterations",
+                "description": "Professional alterations and adjustments for perfect fit"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Personal Consultation",
+                "description": "Expert style consultation to discover your ideal look"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+    
+    <!-- Additional JSON-LD for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Amin Tailor",
+        "url": "https://amin-tailor.vercel.app",
+        "logo": "https://amin-tailor.vercel.app/favicon.svg",
+        "description": "Premium bespoke tailoring with traditional techniques and modern innovation",
+        "foundingDate": "2020",
+        "slogan": "Crafted to Perfection",
+        "knowsAbout": [
+          "Bespoke Tailoring",
+          "Custom Suits",
+          "Garment Alterations",
+          "Fashion Consultation",
+          "Premium Tailoring"
+        ]
+      }
+    </script>
+    
+    <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
