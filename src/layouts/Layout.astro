@@ -1,5 +1,9 @@
 ---
 import Navbar from "../components/navigations/Navbar.astro";
+import Footer from "../components/navigations/Footer.astro";
+import LanguageSwitcher from "../components/navigations/LanguageSwitcher.astro";
+import "../styles/global.css";
+
 interface Props {
   title: string;
 }
@@ -8,10 +12,10 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-pt-24 scroll-smooth">
+<html lang="id" class="scroll-pt-24 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Amin Tailor - Bespoke Tailoring" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -19,21 +23,17 @@ const { title } = Astro.props;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
 
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap");
-    </style>
-    <style>
-      * {
-        font-family: "Poppins", sans-serif;
-      }
-    </style>
-    <slot name="page-meta" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="bg-ivory text-charcoal font-sans overflow-x-hidden">
     <Navbar />
+    <LanguageSwitcher />
     <slot />
-    <footer class="mt-10 bg-ground-800 py-2 text-center text-xs text-white">
-      Amin Tailor
-    </footer>
+    <Footer />
   </body>
 </html>

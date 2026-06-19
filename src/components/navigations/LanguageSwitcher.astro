@@ -1,0 +1,59 @@
+---
+---
+
+<div
+  id="language-switcher"
+  class="fixed top-20 right-4 md:right-8 z-50 flex rounded-full overflow-hidden"
+  style="background-color: rgba(26,26,26,0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);"
+>
+  <button
+    data-locale-btn="id"
+    class="locale-btn px-3 py-1.5 text-xs font-medium tracking-wider transition-all duration-300"
+    style="color: rgba(26,26,26,0.5);"
+  >
+    ID
+  </button>
+  <button
+    data-locale-btn="en"
+    class="locale-btn px-3 py-1.5 text-xs font-medium tracking-wider transition-all duration-300"
+    style="color: rgba(26,26,26,0.5);"
+  >
+    EN
+  </button>
+</div>
+
+<script>
+  import { setLocale, getCurrentLocale, getSupportedLocales } from "../../i18n/index";
+
+  const switcher = document.getElementById("language-switcher");
+
+  function updateButtons() {
+    const current = getCurrentLocale();
+    switcher?.querySelectorAll("[data-locale-btn]").forEach((btn) => {
+      const locale = btn.getAttribute("data-locale-btn")!;
+      if (locale === current) {
+        (btn as HTMLElement).style.backgroundColor = "#1A1A1A";
+        (btn as HTMLElement).style.color = "#FFFFFF";
+      } else {
+        (btn as HTMLElement).style.backgroundColor = "transparent";
+        (btn as HTMLElement).style.color = "rgba(26,26,26,0.5)";
+      }
+    });
+  }
+
+  switcher?.querySelectorAll("[data-locale-btn]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const locale = btn.getAttribute("data-locale-btn") as "id" | "en";
+      if (locale && getSupportedLocales().includes(locale)) {
+        await setLocale(locale);
+        updateButtons();
+      }
+    });
+  });
+
+  // Listen for locale changes from other sources
+  window.addEventListener("locale-changed", updateButtons);
+
+  // Initial state
+  updateButtons();
+</script>

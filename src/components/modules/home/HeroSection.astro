@@ -1,0 +1,138 @@
+---
+---
+
+<section
+  id="hero"
+  class="relative w-screen min-h-[100dvh] overflow-hidden flex items-center justify-center"
+>
+  <!-- Video Background -->
+  <video
+    id="hero-video"
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    poster="/assets/hero-poster.jpg"
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="/assets/hero-video.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Gradient Overlay -->
+  <div
+    class="absolute inset-0 z-[1]"
+    style="background: linear-gradient(180deg, rgba(250,247,242,0.15) 0%, rgba(250,247,242,0.4) 60%, rgba(250,247,242,0.85) 100%);"
+  />
+
+  <!-- Noise Texture Overlay -->
+  <div
+    class="fixed inset-0 z-[2] pointer-events-none opacity-[0.03]"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E&quot;); mix-blend-mode: overlay; width: 100vw; height: 100vh;"
+  />
+
+  <!-- Content -->
+  <div class="relative z-[3] flex flex-col items-center text-center px-8 max-w-[900px]">
+    <!-- Title -->
+    <h1
+      id="hero-title"
+      class="font-display-xl text-white"
+      style="text-shadow: 0 2px 40px rgba(0,0,0,0.15);"
+      data-i18n="hero.title"
+    >
+      <span class="block overflow-hidden">
+        <span class="hero-word inline-block">Craf<i>ted</i></span>
+      </span>
+      <span class="block overflow-hidden">
+        <span class="hero-word inline-block">to <i>Per</i>fect<i>Ion</i></span>
+      </span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p
+      id="hero-subtitle"
+      class="font-body-l mt-8 max-w-[480px] opacity-0"
+      style="color: rgba(255,255,255,0.85);"
+      data-i18n="hero.subtitle"
+    >
+      Bespoke tailoring yang dirancang khusus untuk gaya dan kepribadian Anda.
+    </p>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div
+    id="hero-scroll-indicator"
+    class="absolute bottom-12 left-1/2 -translate-x-1/2 z-[3] flex flex-col items-center opacity-0"
+  >
+    <div class="relative w-px h-10" style="background-color: rgba(255,255,255,0.5);">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full scroll-dot-animate"
+        style="background-color: #C9A96E;"
+      />
+    </div>
+    <span class="font-label mt-3" style="color: rgba(255,255,255,0.4);" data-i18n="hero.scroll">
+      Scroll
+    </span>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+
+  function initHeroAnimations() {
+    const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+    const words = document.querySelectorAll(".hero-word");
+    const subtitle = document.getElementById("hero-subtitle");
+    const scrollIndicator = document.getElementById("hero-scroll-indicator");
+
+    if (words.length === 0) return;
+
+    // Set initial states
+    gsap.set(words, { y: "120%", opacity: 0 });
+    if (subtitle) gsap.set(subtitle, { opacity: 0, y: 30 });
+    if (scrollIndicator) gsap.set(scrollIndicator, { opacity: 0, y: 20 });
+
+    const tl = gsap.timeline();
+
+    tl.to(words, {
+      y: "0%",
+      opacity: 1,
+      duration: 1,
+      ease: "expo.out",
+      stagger: 0.15,
+      delay: 0.3,
+    });
+
+    if (subtitle) {
+      tl.to(subtitle, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      }, "-=0.4");
+    }
+
+    if (scrollIndicator) {
+      tl.to(scrollIndicator, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      }, "-=0.3");
+    }
+
+    // Video autoplay
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay blocked, that's fine
+      });
+    }
+  }
+
+  // Wait for loading screen to finish
+  window.addEventListener("loading-complete", initHeroAnimations);
+
+  // Fallback: if loading screen was already removed
+  if (!document.getElementById("loading-screen")) {
+    initHeroAnimations();
+  }
+</script>

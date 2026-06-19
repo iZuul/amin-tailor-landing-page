@@ -1,105 +1,290 @@
 ---
-import { Image } from "astro:assets";
-import MenWomenClothesImage from "../../../assets/images/men-women-clothes.webp";
-import SchoolUniformImage from "../../../assets/images/school-uniform.webp";
-import UniformImage from "../../../assets/images/uniform.webp";
-import SuitImage from "../../../assets/images/suit.webp";
+const services = [
+  {
+    id: "bespoke",
+    title: "Bespoke Tailoring",
+    tagline: "Pakaian yang dibuat khusus untuk tubuh dan gaya Anda",
+    image: "/assets/service-bespoke.jpg",
+    description:
+      "Proses bespoke kami dimulai dari pengukuran detail tubuh Anda, pemilihan kain premium, hingga final fitting. Setiap potongan pola dirancang khusus — tidak ada dua bespoke suit yang sama. Minimum 3 fitting session untuk hasil sempurna.",
+    cta: "Konsultasi Gratis",
+  },
+  {
+    id: "alteration",
+    title: "Alterations",
+    tagline: "Sempurnakan pakaian yang sudah Anda miliki",
+    image: "/assets/service-alteration.jpg",
+    description:
+      "Dari penyesuaian sederhana hingga restyling total, kami mengubah pakaian Anda agar pas sempurna. Hemming, taking in, letting out, shoulder adjustments, dan lainnya — semua dikerjakan dengan standar tertinggi.",
+    cta: "Konsultasi Gratis",
+  },
+  {
+    id: "consultation",
+    title: "Personal Consultation",
+    tagline: "Temukan gaya terbaik bersama ahli kami",
+    image: "/assets/service-consultation.jpg",
+    description:
+      "Konsultasi personal untuk membantu Anda menemukan gaya, siluet, dan palet warna yang paling cocok. Kami membimbing Anda dalam memilih kain, desain, dan detail yang mencerminkan kepribadian Anda.",
+    cta: "Konsultasi Gratis",
+  },
+];
 ---
 
-<div id="our-services" class="mx-5 my-5 lg:mx-10 lg:my-20 xl:mx-0">
-  <h2
-    class="pb-4 mb-4 text-center text-base font-semibold text-ground-900 md:text-3xl"
+<section
+  id="layanan"
+  class="section-padding page-padding"
+  style="background-color: #FAF7F2;"
+>
+  <!-- Separator line -->
+  <div class="content-max mx-auto mb-0">
+    <div style="height: 1px; background-color: #E8E2D9;" />
+  </div>
+
+  <div class="content-max mx-auto pt-[120px] md:pt-[120px]">
+    <!-- Section Header -->
+    <div class="scroll-reveal" data-reveal-y="30">
+      <span class="font-label block mb-4" style="color: #C9A96E;" data-i18n="services.label">
+        LAYANAN
+      </span>
+    </div>
+
+    <div data-str>
+      <h2 class="font-display-l mb-16" style="color: #1A1A1A;" data-i18n="services.heading">
+        <span class="block overflow-hidden">
+          <span class="str-line">Layanan Kami</span>
+        </span>
+      </h2>
+    </div>
+
+    <!-- Service Cards Grid -->
+    <div id="service-cards" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <button
+          data-card
+          class="service-card group relative overflow-hidden rounded text-left cursor-pointer"
+          style="aspect-ratio: 4/5;"
+          data-service-id={service.id}
+        >
+          <!-- Background Image -->
+          <img
+            src={service.image}
+            alt={service.title}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
+            loading="lazy"
+          />
+
+          <!-- Gradient Overlay -->
+          <div
+            class="absolute inset-0 transition-opacity duration-600"
+            style="background: linear-gradient(180deg, transparent 40%, rgba(26,26,26,0.7) 100%);"
+          />
+
+          <!-- Content -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 transition-transform duration-600 group-hover:-translate-y-2">
+            <h3 class="font-heading-s text-white mb-2" data-i18n="services.items.{service.id}.title">{service.title}</h3>
+            <p class="font-caption mb-4" style="color: rgba(255,255,255,0.7);" data-i18n="services.items.{service.id}.tagline">
+              {service.tagline}
+            </p>
+            <span
+              class="font-label inline-flex items-center gap-2 transition-colors duration-300"
+              style="color: #C9A96E;"
+              data-i18n="services.viewDetail"
+            >
+              Lihat Detail
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Service Detail Overlay -->
+<div
+  id="service-overlay"
+  class="fixed inset-0 z-[5000] hidden flex-col items-center justify-center"
+  style="background-color: rgba(26, 26, 26, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"
+>
+  <!-- Close button -->
+  <button
+    id="overlay-close"
+    class="absolute top-8 right-8 w-12 h-12 rounded-full flex items-center justify-center z-10 transition-shadow duration-300 hover:shadow-lg bg-white"
+    style="border: 1px solid rgba(26,26,26,0.1);"
+    aria-label="Close"
   >
-    Layanan.
-  </h2>
-  <div class="grid gap-5 md:grid-cols-2 lg:gap-10 xl:grid-cols-4">
-    <figure class="group/service-img relative rounded">
-      <Image
-        src={MenWomenClothesImage}
-        alt={`Tailor Room`}
-        width={320}
-        height={480}
-        class:list="text-center object-cover w-full md:h-banner xl:lg:h-banner-lg rounded-xl"
-        loading="lazy"
-        decoding="async"
-      />
-      <div
-        class="absolute left-0 top-0 h-full w-full rounded-xl bg-black/30 opacity-0 transition ease-in-out group-hover/service-img:block group-hover/service-img:opacity-100"
-      >
-        <div
-          class="flex h-full items-center justify-center px-5 text-2xl font-bold text-white"
-        >
-          <span class="text-center leading-10 tracking-widest"
-            >Pakaian <br /> Pria dan Wanita</span
-          >
-        </div>
-      </div>
-    </figure>
-    <figure class="group/service-img relative rounded">
-      <Image
-        src={SchoolUniformImage}
-        alt={`Tailor Room`}
-        width={320}
-        height={720}
-        class:list="text-center object-cover w-full md:h-banner xl:lg:h-banner-lg rounded-xl"
-        loading="lazy"
-        decoding="async"
-      />
-      <div
-        class="absolute left-0 top-0 h-full w-full rounded-xl bg-black/30 opacity-0 transition ease-in-out group-hover/service-img:block group-hover/service-img:opacity-100"
-      >
-        <div
-          class="flex h-full items-center justify-center px-5 text-2xl font-bold text-white"
-        >
-          <span class="text-center leading-10 tracking-widest"
-            >Seragam <br/> Sekolah</span
-          >
-        </div>
-      </div>
-    </figure>
-    <figure class="group/service-img relative rounded">
-      <Image
-        src={UniformImage}
-        alt={`Tailor Room`}
-        width={320}
-        height={720}
-        class:list="text-center object-cover w-full md:h-banner xl:lg:h-banner-lg rounded-xl"
-        loading="lazy"
-        decoding="async"
-      />
-      <div
-        class="absolute left-0 top-0 h-full w-full rounded-xl bg-black/30 opacity-0 transition ease-in-out group-hover/service-img:block group-hover/service-img:opacity-100"
-      >
-        <div
-          class="flex h-full items-center justify-center px-5 text-2xl font-bold text-white"
-        >
-          <span class="text-center leading-10 tracking-widest"
-            >Seragam <br/> Kantor / Kerja</span
-          >
-        </div>
-      </div>
-    </figure>
-    <figure class="group/service-img relative rounded">
-      <Image
-        src={SuitImage}
-        alt={`Tailor Room`}
-        width={320}
-        height={720}
-        class:list="text-center object-cover w-full md:h-banner xl:lg:h-banner-lg rounded-xl"
-        loading="lazy"
-        decoding="async"
-      />
-      <div
-        class="absolute left-0 top-0 h-full w-full rounded-xl bg-black/30 opacity-0 transition ease-in-out group-hover/service-img:block group-hover/service-img:opacity-100"
-      >
-        <div
-          class="flex h-full items-center justify-center px-5 text-2xl font-bold text-white"
-        >
-          <span class="text-center leading-10 tracking-widest"
-            >Pembuatan <br/> Jas</span
-          >
-        </div>
-      </div>
-    </figure>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+    </svg>
+  </button>
+
+  <!-- Image -->
+  <div class="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
+    <img
+      id="overlay-image"
+      src=""
+      alt=""
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <!-- Content -->
+  <div id="overlay-content" class="text-center px-8 py-10 max-w-2xl">
+    <h3 id="overlay-title" class="font-heading-m mb-4 text-white" />
+    <p id="overlay-description" class="font-body-l mb-8" style="color: rgba(255,255,255,0.8);" />
+    <a
+      id="overlay-cta"
+      href="https://wa.me/6281548619166?text=Halo%20Amin%20Tailor%2C%20saya%20ingin%20konsultasi%20tentang%20"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block font-label text-white px-9 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5"
+      style="background-color: #C9A96E; box-shadow: 0 4px 20px rgba(201,169,110,0.3);"
+      data-wa=" "
+      data-i18n="services.freeConsultation"
+    >
+      Konsultasi Gratis
+    </a>
   </div>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Service cards entrance animation
+  const cardsContainer = document.getElementById("service-cards");
+  if (cardsContainer) {
+    const cards = cardsContainer.querySelectorAll("[data-card]");
+    gsap.set(cards, { opacity: 0, y: 60 });
+
+    ScrollTrigger.create({
+      trigger: cardsContainer,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        gsap.to(cards, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "expo.out",
+          stagger: 0.12,
+        });
+      },
+    });
+  }
+
+  // Service overlay logic
+  const overlay = document.getElementById("service-overlay");
+  const overlayClose = document.getElementById("overlay-close");
+  const overlayImage = document.getElementById("overlay-image") as HTMLImageElement | null;
+  const overlayTitle = document.getElementById("overlay-title");
+  const overlayDescription = document.getElementById("overlay-description");
+
+  // Image paths per service (not translated)
+  const serviceImages: Record<string, string> = {
+    bespoke: "/assets/service-bespoke.jpg",
+    alteration: "/assets/service-alteration.jpg",
+    consultation: "/assets/service-consultation.jpg",
+  };
+
+  let currentServiceId: string | null = null;
+
+  function getOverlayData(serviceId: string) {
+    // Read from i18n translations if available, fallback to DOM
+    try {
+      const { getTranslations, getCurrentLocale } = (window as any).__i18n || {};
+      if (getTranslations) {
+        const tr = getTranslations();
+        const items = tr?.services?.items;
+        if (items && items[serviceId]) {
+          return {
+            title: items[serviceId].title,
+            description: items[serviceId].description,
+            image: serviceImages[serviceId],
+          };
+        }
+      }
+    } catch {}
+    // Fallback: scrape from DOM
+    const btn = document.querySelector(`[data-service-id="${serviceId}"]`);
+    const title = btn?.querySelector("h3")?.textContent || "";
+    const desc = btn?.querySelector(".font-caption")?.textContent || "";
+    return { title, description: desc, image: serviceImages[serviceId] };
+  }
+
+  function openOverlay(serviceId: string) {
+    const data = getOverlayData(serviceId);
+    if (!data || !overlay || !overlayImage || !overlayTitle || !overlayDescription) return;
+
+    currentServiceId = serviceId;
+    overlayImage.src = data.image;
+    overlayImage.alt = data.title;
+    overlayTitle.textContent = data.title;
+    overlayDescription.textContent = data.description;
+
+    overlay.classList.remove("hidden");
+    overlay.classList.add("flex");
+    document.body.style.overflow = "hidden";
+
+    gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" });
+    gsap.fromTo(overlayImage, { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "expo.out" }, "-=0.2");
+  }
+
+  function closeOverlay() {
+    if (!overlay) return;
+    gsap.to(overlay, {
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => {
+        overlay.classList.add("hidden");
+        overlay.classList.remove("flex");
+        document.body.style.overflow = "";
+      },
+    });
+  }
+
+  document.querySelectorAll("[data-service-id]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-service-id")!;
+      openOverlay(id);
+    });
+  });
+
+  if (overlayClose) {
+    overlayClose.addEventListener("click", closeOverlay);
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay && !overlay.classList.contains("hidden")) {
+      closeOverlay();
+    }
+  });
+
+  // Refresh overlay content on locale change
+  window.addEventListener("locale-changed", () => {
+    if (currentServiceId && overlay && !overlay.classList.contains("hidden")) {
+      const data = getOverlayData(currentServiceId);
+      if (data && overlayTitle && overlayDescription) {
+        overlayTitle.textContent = data.title;
+        overlayDescription.textContent = data.description;
+      }
+    }
+  });
+</script>

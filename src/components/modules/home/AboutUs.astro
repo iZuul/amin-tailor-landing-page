@@ -1,25 +1,120 @@
-<div id="about-us">
-  <h2
-    class="mb-4 pb-4 text-center text-base font-semibold text-ground-900 md:text-3xl"
-  >
-    Tentang Kami.
-  </h2>
-  <div class="text-center text-ground-900">
-    <p class="mx-auto text-lg xl:w-2/3 px-10">
-      Dengan pengalaman bertahun-tahun dalam dunia jahit, kami memprioritaskan
-      kualitas dan detail dalam setiap karya kami. Jangan ragu untuk menghubungi
-      kami dan berbagi ide Anda, kami siap mewujudkannya dengan penuh semangat
-      dan kreativitas.
-    </p>
-    <div class="mx-auto my-20 font-bold leading-[3.5rem]">
-      <div class="mx-auto my-5 h-1 w-1/2 max-w-full rounded bg-ground-700">
+---
+---
+
+<section
+  id="tentang"
+  class="section-padding page-padding"
+  style="background-color: #FAF7F2;"
+>
+  <div class="content-max mx-auto">
+    <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+      <!-- Image -->
+      <div class="scroll-reveal w-full md:w-[55%]" data-reveal-y="0">
+        <div
+          id="about-image-container"
+          class="overflow-hidden"
+          style="aspect-ratio: 4/5; border-radius: 4px 0 4px 0;"
+        >
+          <img
+            id="about-image"
+            src="/assets/atelier-interior.jpg"
+            alt="Interior Amin Tailor"
+            class="w-full h-full object-cover scale-[1.08]"
+            loading="lazy"
+          />
+        </div>
       </div>
-      <div class="mx-auto my-10 w-2/3 font-['Inter'] text-2xl font-bold italic">
-        Siap membantu Anda mewujudkan pakaian impian.<br /> Jangan lewatkan
-        momen istimewa Anda.
-      </div>
-      <div class="mx-auto my-5 h-1 w-1/2 max-w-full rounded bg-ground-700">
+
+      <!-- Text Content -->
+      <div class="w-full md:w-[45%]">
+        <div class="scroll-reveal" data-reveal-y="20" data-reveal-delay="0">
+          <span class="font-label block mb-4" style="color: #C9A96E;" data-i18n="about.label">
+            TENTANG KAMI
+          </span>
+        </div>
+
+        <div data-str>
+          <h2 class="font-display-l" style="color: #1A1A1A;" data-i18n="about.heading">
+            <span class="block overflow-hidden">
+              <span class="str-line">Cerita Di Balik</span>
+            </span>
+            <span class="block overflow-hidden">
+              <span class="str-line">Setiap Jahitan</span>
+            </span>
+          </h2>
+        </div>
+
+        <!-- Decorative Rule -->
+        <div
+          data-rule
+          class="my-6"
+          style="height: 1px; background-color: #C9A96E; opacity: 0.4; width: 0;"
+        />
+
+        <div class="scroll-reveal" data-reveal-y="30" data-reveal-delay="0.1">
+          <p class="font-body mb-4" style="color: rgba(26,26,26,0.7);" data-i18n="about.body1">
+            Amin Tailor lahir dari passion mendalam terhadap seni menjahit. Dibawah kepemimpinan Amin, kami telah melayani ratusan klien yang mencari lebih dari sekadar pakaian — mereka mencari pengalaman.
+          </p>
+        </div>
+
+        <div class="scroll-reveal" data-reveal-y="30" data-reveal-delay="0.2">
+          <p class="font-body mb-8" style="color: rgba(26,26,26,0.7);" data-i18n="about.body2">
+            Setiap karya yang keluar dari tailor kami adalah hasil dari perpaduan teknik tradisional dan inovasi modern. Kami percaya bahwa pakaian terbaik adalah yang tidak hanya pas di tubuh, tetapi juga bercerita tentang pemakainya.
+          </p>
+        </div>
+
+        <div class="scroll-reveal" data-reveal-delay="0.3">
+          <a
+            href="https://wa.me/6281548619166?text=Halo%20Amin%20Tailor%2C%20saya%20ingin%20konsultasi%20tentang"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="about-cta"
+            class="inline-block font-label text-white px-9 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5"
+            style="background-color: #C9A96E; font-size: 13px; letter-spacing: 0.04em;"
+            data-wa=""
+            data-i18n="about.cta"
+          >
+            Hubungi Kami
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Image parallax
+  const imageContainer = document.getElementById("about-image-container");
+  const image = document.getElementById("about-image");
+
+  if (image && imageContainer) {
+    gsap.to(image, {
+      yPercent: 10,
+      ease: "none",
+      scrollTrigger: {
+        trigger: imageContainer,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  }
+
+  // CTA hover
+  const cta = document.getElementById("about-cta");
+  if (cta) {
+    cta.addEventListener("mouseenter", () => {
+      cta.style.backgroundColor = "#B8956A";
+      cta.style.boxShadow = "0 4px 20px rgba(201,169,110,0.25)";
+    });
+    cta.addEventListener("mouseleave", () => {
+      cta.style.backgroundColor = "#C9A96E";
+      cta.style.boxShadow = "none";
+    });
+  }
+</script>

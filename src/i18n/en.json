@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Amin Tailor | Bespoke Tailoring",
+    "description": "Amin Tailor - Bespoke Tailoring"
+  },
+  "nav": {
+    "brand": "AMIN TAILOR",
+    "services": "Services",
+    "about": "About",
+    "collection": "Collection",
+    "testimonials": "Testimonials",
+    "cta": "Book Now"
+  },
+  "hero": {
+    "title": "<span class=\"block overflow-hidden\"><span class=\"hero-word inline-block\">Craf<i>ted</i></span></span><span class=\"block overflow-hidden\"><span class=\"hero-word inline-block\">to <i>Per</i>fect<i>Ion</i></span></span>",
+    "subtitle": "Bespoke tailoring crafted specifically for your style and personality.",
+    "scroll": "Scroll"
+  },
+  "philosophy": {
+    "label": "OUR PHILOSOPHY",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Every Stitch,</span></span><span class=\"block overflow-hidden\"><span class=\"str-line\">A Masterpiece</span></span>",
+    "body": "At Amin Tailor, we believe the perfect garment is more than clothing — it's self-expression. With years of experience, we blend traditional techniques and modern touches to create something truly yours."
+  },
+  "services": {
+    "label": "SERVICES",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Our Services</span></span>",
+    "viewDetail": "View Details",
+    "freeConsultation": "Free Consultation",
+    "items": {
+      "bespoke": {
+        "title": "Bespoke Tailoring",
+        "tagline": "Garments custom-made for your body and style",
+        "description": "Our bespoke process begins with detailed body measurements, premium fabric selection, and final fitting. Every pattern is designed uniquely — no two bespoke suits are alike. Minimum 3 fitting sessions for perfect results."
+      },
+      "alteration": {
+        "title": "Alterations",
+        "tagline": "Perfect the garments you already own",
+        "description": "From simple adjustments to total restyling, we transform your garments for a perfect fit. Hemming, taking in, letting out, shoulder adjustments, and more — all done to the highest standards."
+      },
+      "consultation": {
+        "title": "Personal Consultation",
+        "tagline": "Discover your best style with our experts",
+        "description": "Personal consultations to help you discover the style, silhouette, and color palette that suits you best. We guide you in choosing fabrics, designs, and details that reflect your personality."
+      }
+    }
+  },
+  "collection": {
+    "label": "COLLECTION",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\"></span></span>",
+    "caption": ""
+  },
+  "about": {
+    "label": "ABOUT US",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">The Story Behind</span></span><span class=\"block overflow-hidden\"><span class=\"str-line\">Every Stitch</span></span>",
+    "body1": "Amin Tailor was born from a deep passion for the art of tailoring. Under Amin's leadership, we have served hundreds of clients seeking more than just clothing — they seek an experience.",
+    "body2": "Every piece that leaves our workshop is a blend of traditional techniques and modern innovation. We believe the best garments don't just fit the body — they tell the story of the wearer.",
+    "cta": "Contact Us"
+  },
+  "testimonials": {
+    "label": "TESTIMONIALS",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">What They Say</span></span>",
+    "items": [
+      {
+        "quote": "The result exceeded my expectations. Every detail was meticulously considered. This suit isn't just clothing — it's an investment in appearance and confidence.",
+        "name": "Muhammad Zulfa",
+        "garment": "Karyawan Swasta"
+      },
+      {
+        "quote": "My first bespoke experience and I fell in love immediately. The process was incredibly personal — Amin truly understood my style and needs.",
+        "name": "Azhaar Afif",
+        "garment": "Karyawan Swasta"
+      },
+      {
+        "quote": "The quality of stitching and fabric used is truly premium. After 3 years, this suit still looks perfect. Highly recommended!",
+        "name": "Hasna Nur",
+        "garment": "Guru"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Ready to Create</span></span><span class=\"block overflow-hidden\"><span class=\"str-line\">Your Dream Garment?</span></span>",
+    "body": "Don't hesitate to reach out. Your first consultation is free, and we'd love to help bring your vision to life.",
+    "cta": "Start Your Journey"
+  },
+  "footer": {
+    "brand": "AMIN TAILOR",
+    "tagline": "Premium Tailoring & Bespoke",
+    "nav": {
+      "services": "Services",
+      "collection": "Collection",
+      "about": "About Us",
+      "contact": "Contact Us"
+    },
+    "copyright": "&copy; 2025 Amin Tailor. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "maps": {
+    "label": "LOCATION",
+    "heading": "<span class=\"block overflow-hidden\"><span class=\"str-line\">Find Us</span></span>",
+    "openInMaps": "Open in Google Maps"
+  },
+  "wa": {
+    "text": "Hello Amin Tailor, I'd like to consult about"
+  },
+  "lang": {
+    "id": "ID",
+    "en": "EN"
+  }
+}
